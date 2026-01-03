@@ -191,7 +191,7 @@ Welcome to the RobCo Pip-Boy 3000 $playerName!
 <</widget>>
 
 
-:: MainScreen {"position":"500,100","size":"100,100"}
+:: MainScreen {"position":"500,200","size":"100,100"}
 <div style="display: flex; flex-direction: column; height: 100%;">
   <nav class="pip-header">
     <<link "STATS">><<set $activeTab to "STATS", $activeSubTab to "USER">><<replace "#passages">><<include "MainScreen">><</replace>><</link>>
@@ -957,7 +957,7 @@ setup.rollEncounter = function() {
 setup.locations = [
     // --- NORTHWEST ---
     { id: "v111", name: "Vault 111", x: 145, y: 115, discovered: true },
-    { id: "sanctuary", name: "Sanctuary", x: 210, y: 175, discovered: true },
+    { id: "sanctuary", name: "Sanctuary", x: 210, y: 175, discovered: false },
     { id: "redrocket", name: "Red Rocket Truck Stop", x: 265, y: 230, discovered: true },
     { id: "abernathy", name: "Abernathy Farm", x: 190, y: 330, discovered: false },
     { id: "concord", name: "Concord", x: 350, y: 390, discovered: false },
@@ -1157,7 +1157,7 @@ body {
 
 /* --- PIP-BOY NAVIGATION --- */
 
-.pip-header, .pip-sub-header {
+.pip-header {
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -1165,23 +1165,12 @@ body {
   border-bottom: 2px solid var(--pip-green);
 }
 
-.pip-header a, .pip-sub-header a {
+.pip-header a {
   padding: 5px 15px !important;
   border: none !important; /* Remove the dashed bottom from standard links */
   font-size: 1.1em;
   font-weight: bold;
   letter-spacing: 2px;
-}
-
-/* Sub-header is slightly smaller and dimmer */
-.pip-sub-header {
-  border-bottom: 1px solid var(--pip-dark-green);
-  margin-top: 5px;
-}
-
-.pip-sub-header a {
-  font-size: 0.85em;
-  opacity: 0.8;
 }
 
 /* Active Tab Highlight (Optional: use a class or just hover state) */
